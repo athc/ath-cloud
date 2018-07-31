@@ -1,10 +1,11 @@
 # ath-cloud kotlin 多模块项目
 
 ### 项目结构：
-ath-cloud 父模块
---ath-auth 子模块（暴露接口，依赖公共模块）
---ath-common 子模块（公共模块）
---ath-consul 子模块（暴露接口）
+
+		ath-cloud 父模块
+		--ath-auth 子模块（暴露接口，依赖公共模块）
+		--ath-common 子模块（公共模块）
+		--ath-consul 子模块（暴露接口）
 
 父模块配置文件
 setting.gradle
