@@ -1,0 +1,16 @@
+group 'com.gitee'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile "org.springframework.boot:spring-boot-starter-data-jpa:$jpa_version"//jpa
+  compile "net.kaczmarzyk:specification-arg-resolver:$spec_version"//jpa tool
+  compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+
+  compile('org.springframework.boot:spring-boot-starter')
+  compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+}

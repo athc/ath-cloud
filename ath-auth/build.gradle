@@ -1,0 +1,11 @@
+group 'com.gitee'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(":ath-common")//模块依赖
+  compile('mysql:mysql-connector-java:6.0.6')
+}

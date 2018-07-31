@@ -1,0 +1,15 @@
+group 'com.gitee'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(":ath-common")//git@github.com:athc/ath-cloud.git
+  compile('org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.0.RELEASE')//consul
+//  compile 'de.codecentric:spring-boot-admin-starter-client:2.0.0'//consul admin
+  compile('mysql:mysql-connector-java:6.0.6')
+}
+
+
