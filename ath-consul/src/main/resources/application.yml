@@ -1,0 +1,10 @@
+server:
+  port: 8011
+
+logging:
+  level:
+    root: WARN
+    com.github.security: INFO
+spring:
+  profiles:
+    active: dev

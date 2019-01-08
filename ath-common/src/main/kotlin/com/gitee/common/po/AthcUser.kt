@@ -1,11 +1,10 @@
 package com.gitee.common.po
 
+import com.sun.istack.internal.NotNull
 import java.io.Serializable
 import java.sql.Timestamp
 import java.util.Objects
 import javax.persistence.*
-import javax.validation.constraints.Email
-import javax.validation.constraints.NotNull
 
 /**
  * @author [dujf](http://github.com/athc)
@@ -22,14 +21,11 @@ data class AthcUser(
     val id: Int = 0,
 
     @NotNull
-    @Column(name = "accout")
-    val accout: String? = null,
+    @Column(name = "account")
+    val account: String = "",
 
     @Column(name = "pwd")
     val pwd: String? = null,
-
-    @Column(name = "salt")
-    val salt: String? = null,
 
     @Column(name = "first_name")
     val firstName: String? = null,
@@ -37,7 +33,6 @@ data class AthcUser(
     @Column(name = "last_name")
     val lastName: String? = null,
 
-    @field:Email
     @Column(name = "email")
     val email: String? = null,
 
@@ -60,10 +55,8 @@ data class AthcUser(
     @Column(name = "head_img")
     val headImg: String? = null,
 
-    @Column(name = "role")
-    val role: Int? = null,
+    val role: String? = null,
 
-    @Column(name = "status")
     val status: Int? = null
 
 ) : Serializable {
@@ -72,9 +65,8 @@ data class AthcUser(
     if (o == null || javaClass != o.javaClass) return false
     val athcUser = o as AthcUser?
     return id == athcUser!!.id &&
-        accout == athcUser.accout &&
+        account == athcUser.account &&
         pwd == athcUser.pwd &&
-        salt == athcUser.salt &&
         firstName == athcUser.firstName &&
         lastName == athcUser.lastName &&
         email == athcUser.email &&
@@ -90,6 +82,6 @@ data class AthcUser(
 
   override fun hashCode(): Int {
 
-    return Objects.hash(id, accout, pwd, salt, firstName, lastName, email, mobile, url, createAt, lastLoginAt, active, headImg, role, status)
+    return Objects.hash(id, account, pwd, firstName, lastName, email, mobile, url, createAt, lastLoginAt, active, headImg, role, status)
   }
 }

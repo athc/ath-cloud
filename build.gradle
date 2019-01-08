@@ -1,7 +1,7 @@
 buildscript {
   ext {
     kotlinVersion = '1.2.41'
-    springBootVersion = '2.0.3.RELEASE'
+    springBootVersion = '2.0.6.RELEASE'
   }
   repositories {
     mavenLocal()
@@ -87,4 +87,5 @@ subprojects {
     maven { url "https://jitpack.io" }
   }
 }
+
 

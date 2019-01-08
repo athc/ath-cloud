@@ -5,11 +5,15 @@ repositories {
   mavenCentral()
 }
 
+jar {
+  manifest {
+    attributes 'Main-Class': 'com.gitee.consul.ConsulApplication'
+  }
+}
+
 dependencies {
   compile project(":ath-common")//git@github.com:athc/ath-cloud.git
-  compile('org.springframework.cloud:spring-cloud-starter-consul-discovery:2.0.0.RELEASE')//consul
-//  compile 'de.codecentric:spring-boot-admin-starter-client:2.0.0'//consul admin
-  compile('mysql:mysql-connector-java:6.0.6')
+  compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
 }
 
 

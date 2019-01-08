@@ -1,24 +1,14 @@
 server:
   port: 8010
 
-
-#  cloud:
-#     consul:
-#        host: localhost
-#        port: 8500
-#  config:
-#    discovery:
-#      enabled: true
-#      serviceId: client-server
-
 #本地环境
 spring:
   application:
     name: auth
   datasource:
-    url: jdbc:mysql://ip:3306/cheap_car?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://localhost:3306/athc_blog?useSSL=false&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
     username: root
-    password: pwd
+    password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database: MYSQL
@@ -26,3 +16,8 @@ spring:
       ddl-auto: update
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL5Dialect
+
+swagger:
+  exclude-path: /error, /ops/**
+  authorization:
+    key-name: Authorization

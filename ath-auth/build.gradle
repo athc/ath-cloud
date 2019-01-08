@@ -1,11 +1,29 @@
+//plugins 放的位置有影响
+plugins {
+  id 'com.google.cloud.tools.jib' version '0.9.9'
+}
+//<image>registry.cn-hangzhou.aliyuncs.com/m65536/jibtest</image>
+//目标镜像registry地址，为了方便测试，你需要换成自己的地址，如果你的网络不好，可以选用国内加速器，比如阿里云的
+jib.to.image = 'gcr.io/athzcc/image-jib'
+
 group 'com.gitee'
 version '0.0.1-SNAPSHOT'
+
+
 
 repositories {
   mavenCentral()
 }
 
+jar {
+  manifest {
+    attributes 'Main-Class': 'com.gitee.auth.AuthApplication'
+  }
+}
+
 dependencies {
   compile project(":ath-common")//模块依赖
-  compile('mysql:mysql-connector-java:6.0.6')
+  compile 'org.springframework.boot:spring-boot-starter-security:2.0.3.RELEASE'
+  compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
+  compile 'org.yaml:snakeyaml:1.19'
 }
