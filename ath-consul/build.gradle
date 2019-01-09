@@ -13,7 +13,8 @@ jar {
 
 dependencies {
   compile project(":ath-common")//git@github.com:athc/ath-cloud.git
-  compile 'org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE'
+  compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springBootVersion"
+  compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
 }
 
 
