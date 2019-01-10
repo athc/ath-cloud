@@ -3,7 +3,6 @@ package com.gitee.common.po
 import java.io.Serializable
 import java.util.Objects
 import javax.persistence.*
-import javax.validation.constraints.NotBlank
 
 /**
  * @author [dujf](http://github.com/athc)
@@ -18,7 +17,6 @@ class AthcCategory(
     @Column(name = "id")
     val id: Int = 0,
 
-    @NotBlank
     @Column(name = "name")
     val name: String? = null,
 
