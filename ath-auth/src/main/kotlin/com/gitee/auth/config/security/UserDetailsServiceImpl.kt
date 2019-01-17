@@ -8,7 +8,6 @@ import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
-import org.springframework.stereotype.Component
 import java.util.stream.Collectors
 
 /**
@@ -22,7 +21,7 @@ open class UserDetailsServiceImpl(
 ) : UserDetailsService {
   override fun loadUserByUsername(username: String): UserDetails {
     return userRepository.findByAccount(username).orElseThrow {
-      UsernameNotFoundException("$username not found")
+      UsernameNotFoundException("username:$username not found")
     }.let {
       User(it.account, it.pwd, getRoles(it.role ?: ""))
     }

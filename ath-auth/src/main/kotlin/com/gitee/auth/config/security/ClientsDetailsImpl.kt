@@ -20,7 +20,7 @@ open class ClientsDetailsImpl(
     private val clientRepository: ClientRepository
 ) : ClientDetailsService {
   override fun loadClientByClientId(clientId: String): ClientDetails {
-    return clientRepository.findByClientId(clientId).orElseThrow { ClientRegistrationException("$clientId not found") }.let {
+    return clientRepository.findByClientId(clientId).orElseThrow { ClientRegistrationException("clientId: $clientId not found") }.let {
       object : ClientDetails {
         override fun getClientId(): String? {
           return it!!.clientId
