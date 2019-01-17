@@ -9,11 +9,13 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter
 import com.gitee.auth.config.security.UserDetailsServiceImpl
+import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.http.HttpMethod
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer
 import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore
 
 
 /**
@@ -26,12 +28,15 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 open class Oauth2Config(
     private val clientsDetailsImpl: ClientsDetailsImpl,
     private val userDetailsServiceImpl: UserDetailsServiceImpl,
+    private val redisConnectionFactory: RedisConnectionFactory,
     private val authenticationManager: AuthenticationManager
 ) : AuthorizationServerConfigurerAdapter() {
 
   @Throws(Exception::class)
   override fun configure(endpoints: AuthorizationServerEndpointsConfigurer?) {
-    endpoints!!.tokenStore(InMemoryTokenStore())
+    endpoints!!
+        // .tokenStore(InMemoryTokenStore())
+        .tokenStore(redisTokenStore())
         .authenticationManager(authenticationManager)
         //刷新token会用到userDetailsService
         .userDetailsService(userDetailsServiceImpl)
@@ -59,4 +64,7 @@ open class Oauth2Config(
   open fun passwordEncoder(): PasswordEncoder {
     return BCryptPasswordEncoder()
   }
+
+  @Bean
+  open fun redisTokenStore(): RedisTokenStore = RedisTokenStore(redisConnectionFactory)
 }

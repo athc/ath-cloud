@@ -4,6 +4,7 @@ import com.spring4all.swagger.EnableSwagger2Doc
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan
+import org.springframework.boot.runApplication
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 
 /**
@@ -16,6 +17,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 open class AuthApplication
 
 fun main(args: Array<String>) {
-  SpringApplication.run(AuthApplication::class.java, *args)
+//  SpringApplication.run(AuthApplication::class.java, *args)
+  runApplication<AuthApplication>(*args)
 }
 

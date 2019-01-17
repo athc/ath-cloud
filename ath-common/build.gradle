@@ -1,10 +1,6 @@
 group 'com.gitee'
 version '0.0.1-SNAPSHOT'
 
-repositories {
-  mavenCentral()
-}
-
 dependencies {
   compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"//jpa
   compile "net.kaczmarzyk:specification-arg-resolver:$spec_version"//jpa tool

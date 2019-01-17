@@ -25,6 +25,7 @@ open class ResourceServerConfig : ResourceServerConfigurerAdapter() {
         .authorizeRequests()
         //配置order访问控制，必须认证过后才可以访问
         .antMatchers("/user/**").hasRole("USER")
+        .antMatchers("/con/**").hasRole("ADMIN")
         .anyRequest().permitAll()
   }
 }
